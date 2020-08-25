@@ -1,15 +1,24 @@
 <template>
 <v-container fluid>
-    <div>
+    <v-form>
+        <v-file-input>
 
+        </v-file-input>
+    </v-form>
+    <div class="pills">
+        <Pill v-for="word in groupedWords" :key="word.name" :name="word.name" :amount="word.amount" />
     </div>
 
 </v-container>
 </template>
 
 <script>
-export default {
+import Pill from './Pill'
 
+export default {
+    components: {
+        Pill
+    },
     data: function () {
         return {
             groupedWords: [{
@@ -32,5 +41,10 @@ export default {
 </script>
 
 <style>
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
+}
 </style>
